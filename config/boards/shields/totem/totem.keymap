@@ -53,7 +53,7 @@
             bindings = <
      &trans         &kp DE_UNDERSCORE  &kp DE_LBKT        &kp DE_RBKT         &kp DE_CARET       &kp DE_EXCLAMATION  &kp DE_LESS_THAN         &kp DE_GREATER_THAN       &kp DE_EQUAL         &kp DE_AMPERSAND
      &kp DE_BACKSLASH  &kp DE_SLASH       &kp DE_LEFT_BRACE  &kp DE_RIGHT_BRACE  &kp DE_ASTERISK    &kp DE_QUESTION     &kp DE_LEFT_PARENTHESIS  &kp DE_RIGHT_PARENTHESIS  &kp DE_MINUS         &kp DE_COLON
-&trans &kp DE_HASH       &kp DE_DOLLAR      &kp DE_PIPE        &kp DE_TILDE        &kp DE_GRAVE       &kp DE_PLUS         &kp DE_PERCENT           &kp DE_DQ      &kp DE_SQ  &kp DE_SEMICOLON  &kp DE_AT_SIGN
+&trans &kp DE_HASH       &kp DE_DOLLAR      &kp DE_PIPE        &kp DE_TILDE        &kp DE_GRAVE       &kp DE_PLUS         &kp DE_PERCENT           &kp DE_DQT      &kp DE_SQT  &kp DE_SEMI  &kp DE_AT
                          &kp ESCAPE  &lt 1 TAB  &kp SPACE    &kp ESCAPE  &lt 2 BSPC  &kp DEL
             >;
         };
