@@ -1,81 +1,60 @@
-//
-//                                                        ▀▀▀▀▀     ▀▀▀▀▀          ▀▀█▀▀
-//                                                        ▄▀▀▀▄  ▄  ▄▀▀▀▄  ▄  ▄▀▀▀▄  █  ▄▀▀▀▄
-//                                                        █   █  █  █   █  █  █   █  █  █   █
-//                                                         ▀▀▀   █   ▀▀▀   █   ▀▀▀   ▀   ▀▀▀
-//                                                               █      ▄▄▄█▄▄▄    █   █  
-//                                                               ▀      █  █  █     █▄█
-//                                                             ▀▀▀▀▀    █  █  █      ▀
-//                                                                      ▀  ▀  ▀
-//
-// ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include <locale/keys_de.h>
 
-#define Base        0
-#define Nav         1
-#define Sym         2
 
 &mt {
-    quick-tap-ms = <100>;
-    global-quick-tap;
-    flavor = "tap-preferred";
-    tapping-term-ms = <170>;
+  quick-tap-ms = <100>;
+  global-quick-tap;
+  flavor = "tap-preferred";
+  tapping-term-ms = <170>;
 };
 
-&lt {
-    tapping-term-ms = <240>;
-    flavor = "balanced";
-    quick-tap-ms = <150>;
-};
+
 
 / {
-    behaviors {
-        hm: homerow_mods {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <125>;
-            global-quick-tap;
-            bindings = <&kp>, <&kp>;
+    combos {
+        compatible = "zmk,combos";
+
+        space {
+            bindings = <&kp SPACE>;
+            key-positions = <11 12 13>;
+            layers = <0 2 1>;
+        };
+
+        return {
+            bindings = <&kp ENTER>;
+            key-positions = <16 17 18>;
         };
     };
-
-    combos { compatible = "zmk,combos"; };
 
     keymap {
         compatible = "zmk,keymap";
 
-        Base {
-            display-name = "Base";
+        BASE {
             bindings = <
-              &kp Q       &kp W       &kp E          &kp R         &kp T        &kp Y    &kp U        &kp I        &kp O       &kp P
-              &hm LGUI A  &hm LALT S  &hm LCTRL D    &hm LSHIFT F  &kp G        &kp H    &hm RSHFT J  &hm RCTRL K  &hm RALT L  &hm RGUI SEMICOLON
-&lt 1 ESCAPE  &kp Z       &kp X       &kp C          &kp V         &kp B        &kp N    &kp M        &kp COMMA    &kp DOT     &kp SLASH           &kp APOSTROPHE
-                                      &mt LCTRL DEL  &lt 1 TAB     &kp SPACE    &kp RET  &lt 2 BSPC   &kp MINUS
+           &kp DE_J  &kp DE_D  &kp DE_U      &kp DE_A           &kp DE_X       &kp DE_P       &kp DE_H      &kp DE_L     &kp DE_M      &kp DE_W
+           &kp DE_C  &kp DE_T  &kp DE_I      &kp DE_E           &kp DE_O       &kp DE_B       &kp DE_N      &kp DE_R     &kp DE_S      &kp DE_G
+&kp DE_SZ  &kp DE_F  &kp DE_V &kp DE_U_UMLAUT &kp DE_A_UMLAUT   &kp DE_O_UMLAUT  &kp DE_Y     &kp DE_Z      &kp DE_P     &kp DE_COMMA  &kp DE_DOT  &kp DE_Q
+                         &kp ESCAPE  &lt 1 TAB  &kp SPACE    &kp ESCAPE  &lt 2 BSPC  &kp DEL
             >;
         };
 
-        Nav {
-            display-name = "Nav";
+        NAVNUM {
             bindings = <
-              &kp TILDE       &trans     &kp UP_ARROW  &trans     &kp LBRC    &kp RBRC  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0
-              &kp LEFT_SHIFT  &kp LEFT   &kp DOWN      &kp RIGHT  &kp LBKT    &kp RBKT  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp MINUS
-&kp LEFT_ALT  &kp LEFT_WIN    &kp MINUS  &trans        &kp PLUS   &kp LPAR    &kp RPAR  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp KP_MULTIPLY  &kp PLUS
-                                         &trans        &trans     &trans      &trans    &trans        &kp DOT
+        &trans  &trans    &kp UP    &trans     &trans    &kp DE_N7  &kp DE_N8  &kp DE_N9  &kp DE_FSLH  &kp DE_PLUS
+        &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &trans    &kp DE_N4  &kp DE_N5  &kp DE_N6  &kp DE_STAR  &kp DE_MINUS
+&trans  &trans  &trans    &trans    &trans     &trans    &kp DE_N3  &kp DE_N2  &kp DE_N1  &kp DE_N0    &kp DE_COMMA  &kp DE_MINUS
+                         &kp ESCAPE  &lt 1 TAB  &kp SPACE    &kp ESCAPE  &lt 2 BSPC  &kp DEL
             >;
         };
 
-        Sym {
-            display-name = "Sym";
+        SYM {
             bindings = <
-                &kp EXCL  &kp AT  &kp HASH    &kp DOLLAR  &kp PERCENT    &kp CARET  &kp AMPERSAND  &kp KP_ASTERISK  &kp SQT  &kp DQT
-                &trans    &trans  &kp RA(N5)  &kp RA(P)   &kp RA(Q)      &kp RA(Y)  &kp RA(S)      &trans           &trans   &trans
-&studio_unlock  &trans    &trans  &trans      &trans      &trans         &kp UNDER  &kp EQUAL      &trans           &trans   &kp SLASH  &kp HOME
-                                  &trans      &trans      &trans         &trans     &trans         &trans
+     &trans         &kp DE_UNDERSCORE  &kp DE_LBKT        &kp DE_RBKT         &kp DE_CARET       &kp DE_EXCLAMATION  &kp DE_LESS_THAN         &kp DE_GREATER_THAN       &kp DE_EQUAL         &kp DE_AMPERSAND
+     &kp DE_BACKSLASH  &kp DE_SLASH       &kp DE_LEFT_BRACE  &kp DE_RIGHT_BRACE  &kp DE_ASTERISK    &kp DE_QUESTION     &kp DE_LEFT_PARENTHESIS  &kp DE_RIGHT_PARENTHESIS  &kp DE_MINUS         &kp DE_COLON
+&kp DE_ &kp DE_HASH       &kp DE_DOLLAR      &kp DE_PIPE        &kp DE_TILDE        &kp DE_GRAVE       &kp DE_PLUS         &kp DE_PERCENT           &kp DE_DOUBLE_QUOTES      &kp DE_SINGLE_QUOTE  &kp DE_SEMICOLON  &kp DE_AT_SIGN
+                         &kp ESCAPE  &lt 1 TAB  &kp SPACE    &kp ESCAPE  &lt 2 BSPC  &kp DEL
             >;
         };
     };
